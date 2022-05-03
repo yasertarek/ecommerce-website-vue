@@ -1,0 +1,145 @@
+.choose_us {
+    margin-bottom: $v-gutter;
+    .heading-secondary {
+        margin-bottom: 9.3rem;
+        text-align: center;
+    }
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 5rem;
+        @include respond(tab-port) {
+            justify-content: center;
+        }
+    }
+    &__item {
+        // flex-basis: calc(25%);
+    }
+    &__icon {
+        background-color: #f6f6f6;
+        border-radius: 10px;
+        width: 7rem;
+        height: 7rem;
+        margin-bottom: 4.3rem;
+        @include flexParent(center);
+        &--fav {
+            background-color: #FFF3DF;
+        }
+    }
+    &__heading {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 2rem
+    }
+    &__text {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #808080;
+        max-width: 24.7rem;
+    }
+}
+
+.sfu {
+    margin-bottom: $v-gutter;
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 7rem;
+        // flex-wrap: wrap;
+        .heading-secondary {
+            flex: 2;
+            @include respond(phone) {
+                font-size: 2.625rem;
+            }
+        }
+    }
+    &__btn {
+        font-size: 1.2rem;
+        @include respond(phone) {
+            padding: 0;
+            box-shadow: none;
+            border: none;
+            text-align: right;
+            flex: 1;
+            &:hover,
+            &:active {
+                box-shadow: none;
+                // transform: none;
+            }
+        }
+    }
+}
+
+.products-sec {
+    margin-bottom: $v-gutter;
+    .row--lg {
+        position: relative;
+    }
+    .heading-secondary {
+        margin-bottom: 7rem;
+    }
+}
+
+.newsletter {
+    background-size: cover;
+    min-height: 27.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 3rem 11rem;
+    &__text {
+        font-size: 2.9rem;
+        font-weight: 400;
+        // flex-basis: 40%;
+        color: $color-white;
+        flex-basis: 51rem;
+        @include respond(tab-port) {
+            flex-basis: 100%;
+            font-size: 2.5rem;
+        }
+        @include respond (phone) {
+            text-align: center;
+        }
+    }
+    form {
+        display: flex;
+        justify-content: center;
+        margin-left: 7rem;
+        flex: 1;
+        column-gap: 2rem;
+        @include respond(tab-port) {
+            flex: none;
+            flex-basis: 100%;
+            margin: 0;
+            row-gap: 1rem;
+            flex-wrap: wrap;
+        }
+    }
+    .input {
+        // flex-basis: 4%;
+        // margin-right: 2rem;
+        flex-basis: 31.5rem;
+        @include respond(phone) {
+            flex: 1;
+        }
+    }
+    .btn {
+        @include respond(phone) {
+            flex: 1;
+        }
+    }
+    @include respond(tab-land) {
+        padding: 2.7rem 8rem;
+    }
+    @include respond(tab-port) {
+        padding: 2.2rem 6rem;
+    }
+    @include respond(phone) {
+        padding: 1.8rem 4rem;
+        align-content: center;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,15 @@
+.input {
+    // border: none;
+    outline: none;
+    border: none;
+    font-size: 1.3rem;
+    padding-left: 3.5rem;
+    padding: 1.5rem 0 1.5rem 3.5rem;
+    background-color: #fff;
+    border-radius: 10rem;
+    font-family: inherit;
+    &:active,
+    &:focus {
+        outline: 3px dashed $color-blue;
+    }
+}

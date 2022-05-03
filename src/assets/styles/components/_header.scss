@@ -1,0 +1,289 @@
+.header {
+    overflow: hidden;
+    margin-bottom: $v-gutter;
+    position: relative;
+    background-color: #000;
+    &__overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    &__pills {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        // height: 13.1rem;
+        // height: 16.375vh;
+        height: 16.375%;
+        width: 69.9375vw;
+        @include respond(tab-land) {}
+        background-color: $color-white;
+        border-top-right-radius: 4.375vw;
+        z-index: 100;
+        // padding-top: 3.6rem;
+        padding-top: 2.25%;
+        padding-right: 6.0625%;
+        // padding-right: 6.25vw;
+        display: flex;
+        justify-content: end;
+        gap: 5.6rem;
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+    &__pill {
+        display: flex;
+        gap: 2.7rem;
+        &-icon {
+            width: 3.9rem;
+            height: 3.9rem;
+            background-color: #FFF3DF;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &--van svg {
+                width: 2.049rem;
+                height: 1.21rem
+            }
+            &--happy svg {
+                width: 1.7333rem;
+                height: 1.7333rem
+            }
+            &--guarantee svg {
+                width: 1.9rem;
+                height: 20.057rem
+            }
+        }
+        &-text {
+            h6 {
+                font-size: 1.4rem;
+                font-weight: 600;
+                color: $color-black;
+                margin-bottom: 0.9rem;
+            }
+            p {
+                font-size: 1.2rem;
+                color: $color-gray;
+                font-weight: 400;
+            }
+        }
+    }
+    &__swiper {
+        width: 100vw;
+        // max-height: 100vh;
+        height: 50vw;
+        @include respond(tab-port) {
+            height: 74rem;
+            margin-top: 11.5rem;
+        }
+    }
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+    &-progressbar {
+        position: absolute;
+        left: $h-gutter;
+        top: 50%;
+        transform: translateY(-50%);
+        width: .2rem;
+        // height: 42.3rem;
+        // height: 52.875vh;
+        height: calc(44.125%);
+        background-color: rgba($color: #ffffff, $alpha: 0.27);
+        z-index: 1000;
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+    &-progThumb {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: #fff;
+        transition: height 0.3s ease-in-out;
+    }
+    &-current,
+    &-total {
+        position: absolute;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $color-white;
+        left: 50%;
+    }
+    &-current {
+        top: -1rem;
+        transform: translate(-50%, -100%);
+    }
+    &-total {
+        bottom: -1rem;
+        transform: translate(-50%, 100%);
+    }
+    &-button-cont {
+        position: absolute;
+        // right: 16rem;
+        // right: 10vw;
+        right: calc(calc(calc(100vw - 128rem) / 2) + 3rem);
+        @include respond(big-desktop) {
+            right: calc(calc(calc(100vw - 148rem) / 2) + 3rem);
+        }
+        @include respond(tab-land) {
+            right: calc(calc(calc(100vw - 100rem) / 2) + 3rem);
+        }
+        bottom: 5.9rem;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        gap: 17px;
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+    &__text {
+        position: absolute;
+        // left: 36.3rem;
+        left: 22.6875vw;
+        top: 50%;
+        transform: translateY(-60%);
+        z-index: 1000;
+        @include respond(phone) {
+            left: 3.5rem;
+        }
+    }
+    &__heading {
+        font-size: 6.6rem;
+        font-weight: 700;
+        color: $color-white;
+        max-width: 36.5rem;
+        display: block;
+        line-height: 1.2;
+        margin-bottom: 6.2rem;
+        @include respond(phone) {
+            max-width: 29.75rem;
+            font-size: 5.375rem;
+        }
+    }
+    &__cta {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        gap: 2.2rem;
+        &__icon {
+            background-color: $color-yellow;
+            width: 3.9rem;
+            height: 3.9rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            svg {
+                fill: $color-white;
+                width: 1.7rem;
+                transform: translateX(0);
+            }
+        }
+        &__text {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $color-white;
+            letter-spacing: 0.08rem;
+        }
+        &:hover {
+            svg {
+                animation: moveToRight 0.8s ease-in-out;
+            }
+        }
+    }
+    &-cust-button {
+        width: 7.2rem;
+        height: 7.2rem;
+        // width: 4.5vw;
+        // height: 4.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        @include hoverAnimation();
+        svg {
+            width: 2.4943rem;
+            // width: 1.5589375vw;
+            height: 2.1679rem;
+            // height: 1.3549375vw;
+        }
+        &--next {
+            background-color: rgba(255, 255, 255, 1);
+            svg {
+                fill: #000;
+            }
+        }
+        &--prev {
+            background-color: rgba(255, 255, 255, 0.12);
+            svg {
+                fill: #fff;
+            }
+        }
+    }
+    .swiper-slide::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.25);
+        z-index: 900;
+    }
+    .swiper {
+        transition: transform 0.5s ease-in-out 1s;
+        transform: translateX(100%);
+        transform-origin: top;
+        // transition: opacity 0.5s ease-in-out 1s;
+        // opacity: 0;
+        z-index: 100;
+    }
+    &__animation {
+        &,
+        &::after {
+            transition: transform 0.5s ease-in-out;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            transform: scaleX(0.1);
+            transform-origin: right;
+            z-index: 10;
+        }
+        &::after {
+            content: '';
+            transition: transform 0.5s ease-in-out 0.5s;
+            background-color: #ccc;
+        }
+    }
+    &--active &__animation {
+        transform: scaleX(1);
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+    &--active .swiper {
+        transform: translateX(0);
+        // opacity: 1;
+    }
+}

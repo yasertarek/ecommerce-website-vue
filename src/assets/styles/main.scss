@@ -1,0 +1,26 @@
+// abstracts here
+// @import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+@import "abstracts/animations";
+// base here
+// @import "base/animations";
+@import "base/base";
+@import "base/typography";
+// @import "base/utilities";
+// components here
+@import "components/input";
+@import "components/checkbox";
+@import "components/btn";
+@import "components/product";
+@import "components/header";
+@import "components/banners";
+@import "components/products_swiper";
+// layout here
+// @import "layout/footer";
+@import "layout/grid";
+@import "layout/navbar";
+@import "layout/footer";
+// Pages here
+@import "pages/home";
+@import "pages/shop";

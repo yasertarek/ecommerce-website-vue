@@ -1,0 +1,112 @@
+.product {
+    &__btn {
+        font-size: 1.2rem;
+        @include respond(phone) {
+            padding: 0;
+            box-shadow: none;
+            border: none;
+            text-align: right;
+            flex: 1;
+            &:hover,
+            &:active {
+                box-shadow: none;
+                // transform: none;
+            }
+        }
+    }
+    &__link {
+        text-decoration: none;
+    }
+    &__photo {
+        position: relative;
+        // width: 27.2rem;
+        height: 38.5rem;
+        display: block;
+        overflow: hidden;
+        margin-bottom: 3rem;
+        @include respond(tab-port) {
+            height: 27.2rem;
+        }
+        /* states */
+        &:hover {
+            .product__img {
+                &_front {
+                    opacity: 0;
+                }
+                &_back {
+                    opacity: 1;
+                    transform: scale(1) !important;
+                }
+            }
+        }
+    }
+    &__img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            display: block;
+        }
+        &_back {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+    }
+    &__badge {
+        position: absolute;
+        left: 2.5rem;
+        top: 2.5rem;
+        display: inline-block;
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: $color-white;
+        border-radius: 4rem;
+        padding: 0.6rem 1.2rem;
+        z-index: 200;
+        &--red {
+            background-color: $color-red;
+        }
+        &--black {
+            background-color: $color-black;
+        }
+        @include respond(phone) {
+            left: 1rem;
+            top: 1.375rem;
+        }
+    }
+    &__text {
+        // display: inline-block;
+    }
+    &__title {
+        font-size: 1.6rem;
+        color: $color-black;
+        font-weight: 300;
+    }
+    &__price {
+        font-size: 2rem;
+        font-weight: 400;
+        color: $color-black;
+        display: inline-block;
+        &--red {
+            color: $color-red
+        }
+        &--old {
+            -webkit-margin-inline-start: 2rem;
+            margin-inline-start: 2rem;
+            color: $color-mid-gray;
+            text-decoration: line-through;
+            @include respond(phone) {
+                -webkit-margin-inline-start: 0;
+                margin-inline-start: 0;
+                display: block;
+            }
+        }
+    }
+}

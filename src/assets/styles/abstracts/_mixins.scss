@@ -1,0 +1,79 @@
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin flexParent($just: space-between, $align: center) {
+    display: flex;
+    justify-content: $just;
+    align-items: $align;
+}
+
+@mixin hoverAnimation($trans...) {
+    // filter: drop-shadow(0 5px 7px rgba($color: #000000, $alpha: 0.25));
+    box-shadow: 0 3px 3px rgba($color: #000000, $alpha: 0.25);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, $trans;
+    &:hover {
+        transform: translateY(-2px) scale(1.05);
+        // filter: drop-shadow(0 7px 10px rgba($color: #000000, $alpha: 0.4));
+        box-shadow: 0 5px 5px rgba($color: #000000, $alpha: 0.2);
+    }
+    &:active {
+        transform: translateY(1px) scale(1.025);
+        // filter: drop-shadow(0 3px 5px rgba($color: #000000, $alpha: 0.25));
+        box-shadow: 0 1px 2px rgba($color: #000000, $alpha: 0.25);
+    }
+}
+
+@mixin boxShadow($x: 0, $y: 2px, $blur: 5px, $color: rgba($color-black, 0.25)) {
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone {
+        @media only screen and (max-width: 37.5em) {
+            @content
+        }
+        ; //600px
+    }
+    @if $breakpoint==tab-port {
+        @media only screen and (max-width: 56.25em) {
+            @content
+        }
+        ; //900px
+    }
+    @if $breakpoint==tab-land {
+        @media only screen and (max-width: 75em) {
+            @content
+        }
+        ; //1200px
+    }
+    @if $breakpoint==big-desktop {
+        @media only screen and (min-width: 112.5em) {
+            @content
+        }
+        ; //1600
+    }
+}
+
+// MEDIA QUERY MANAGER
+
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/

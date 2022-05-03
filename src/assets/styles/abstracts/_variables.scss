@@ -1,0 +1,26 @@
+$color-white: #fff;
+$color-black: #000;
+$color-yellow: #FBB03B;
+$color-red: #FF0000;
+$color-blue: #1A6EFF;
+$color-gray: #A8A8A8;
+$color-mid-gray: #CECECE;
+$h-gutter: 16rem;
+$v-gutter: 9.2rem;
+$rowPadd: calc(calc(calc(100vw - 80rem) / 2) + 3rem);
+$lig: 300;
+$reg: 400;
+$med: 500;
+$sem: 600;
+$bol: 700;
+@include respond(tab-land) {
+    $h-gutter: 8.2rem;
+}
+
+@include respond(tab-port) {
+    $h-gutter: 3.5rem;
+}
+
+@include respond (phone) {
+    $v-gutter: 0;
+}

@@ -1,0 +1,32 @@
+.row {
+    max-width: 128rem;
+    &--lg {
+        max-width: 132rem;
+    }
+    &,
+    &--lg {
+        margin: 0 auto;
+    }
+    padding: 0 3rem;
+    @include respond(big-desktop) {
+        max-width: 148rem;
+        &--lg {
+            max-width: 152rem;
+        }
+    }
+    @include respond(tab-land) {
+        max-width: 100rem;
+        &--lg {
+            max-width: 104rem;
+        }
+    }
+    @include respond(tab-port) {
+        max-width: 80rem;
+        &--lg {
+            max-width: 84rem;
+        }
+        & {
+            padding: 0 3rem;
+        }
+    }
+}

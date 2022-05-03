@@ -1,0 +1,458 @@
+.nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    &--scrolled,
+    &--routed {
+        position: fixed;
+        background-color: $color-white;
+        // padding: 2.8rem 0 0;
+    }
+    @include respond(tab-port) {
+        background-color: $color-white;
+        padding: 4.8rem 0;
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+    &__elmnt {
+        flex: 1;
+        @include respond(tab-port) {
+            flex: auto;
+        }
+        &:first-child {
+            @include flexParent(flex-start);
+            gap: 2.4rem;
+            flex-wrap: wrap;
+        }
+        &:last-child {
+            @include flexParent(flex-end);
+            gap: 3.8rem;
+        }
+    }
+    &__search-bar {
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out, margin 0.2s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-inline-start: 5%;
+        transform-origin: right;
+    }
+    &--scrolled &__search-bar,
+    &--routed &__search-bar {
+        // border: 1px solid $color-black;
+        @include boxShadow();
+    }
+    &__icon--search--active &__search-bar {
+        visibility: visible;
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    &__menu {
+        transition: background 0.2s ease-in-out, width 0.2s ease-in-out;
+        &_header {
+            @include flexParent;
+            gap: 2.4rem;
+            flex-wrap: wrap;
+        }
+        &_profile {
+            display: none;
+            width: 1.9rem;
+            height: 1.9rem;
+            -webkit-margin-inline-start: auto;
+            margin-inline-start: auto;
+        }
+        @include respond(tab-port) {
+            overflow: hidden auto;
+        }
+    }
+    &__logo {
+        fill: $color-white;
+        @include respond(tab-port) {
+            fill: $color-black;
+        }
+        & svg {
+            width: 4.577rem;
+            height: 3.5001rem
+        }
+    }
+    &--scrolled &__logo,
+    &--routed &__logo {
+        fill: $color-black;
+    }
+    &__site-name {
+        font-size: 1.9rem;
+        text-decoration: none;
+        color: $color-white;
+        @include respond(tab-port) {
+            color: $color-black;
+        }
+    }
+    &--scrolled &__site-name,
+    &--routed &__site-name {
+        color: $color-black;
+    }
+    &__links {
+        height: 100%;
+        list-style: none;
+        @include flexParent;
+        gap: 7.6rem;
+        margin-inline-start: auto;
+        -webkit-margin-inline-end: -25%;
+        margin-inline-end: -25%;
+        transition: margin 0.2s ease-in-out;
+        @include respond(tab-port) {
+            display: none;
+            margin: 0;
+            flex-basis: 100%;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+            gap: 2rem;
+            padding-left: $rowPadd;
+            @include respond(phone) {
+                padding-left: 3rem;
+            }
+        }
+        &--moved {
+            -webkit-margin-inline-end: 0;
+            margin-inline-end: 0;
+        }
+        &>li {
+            height: 100%;
+            @include respond(tab-port) {
+                height: auto;
+            }
+            &>a {
+                height: 100%;
+                font-size: 1.4rem;
+                font-weight: 500;
+                padding: 4.8rem 0;
+                // text-decoration: none;
+                background-color: transparent;
+                border: none;
+                color: $color-white;
+                display: flex;
+                align-items: center;
+                position: relative;
+                cursor: pointer;
+                font-family: inherit;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    bottom: 4.7rem;
+                    width: 0;
+                    height: 2px;
+                    background-color: #FBB03B;
+                    transition: width 0.3s ease-in-out;
+                    @include respond(tab-port) {
+                        display: none;
+                    }
+                }
+                &:hover::after {
+                    width: 100%;
+                    @include respond(tab-port) {
+                        display: none;
+                    }
+                }
+                @include respond(tab-port) {
+                    font-size: 2rem;
+                    height: auto;
+                    padding: 0;
+                }
+            }
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+    &__link--active::after {
+        width: 100% !important;
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+    &--scrolled &__links li a,
+    &--routed &__links li a {
+        color: $color-black;
+    }
+    &__sub_menu:hover~&__link::after {
+        width: 100%;
+        @include respond(tab-port) {
+            display: none;
+        }
+    }
+    &__sub_menu {
+        display: flex;
+        gap: 15rem;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        opacity: 0;
+        &:hover {
+            transform: scaleY(1);
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+        }
+        position: absolute;
+        background-color: $color-white;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        padding-inline-start: calc(calc(calc(100vw - 128rem) / 2) + 2rem);
+        padding-top: 3.6rem;
+        &,
+        ul {
+            list-style: none;
+        }
+        li {
+            color: $color-black;
+            font-weight: 400;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            &:first-child ul li,
+            &:not(:first-child) ul li:first-child {
+                text-transform: uppercase;
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin-bottom: 1.4rem;
+            }
+        }
+        a {
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                width: 100%;
+                height: 2px;
+                background-color: #FBB03B;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease-in-out;
+                @include respond(tab-port) {
+                    display: none;
+                }
+            }
+            &:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+                @include respond(tab-port) {
+                    display: none;
+                }
+            }
+        }
+        &>li:first-child {
+            padding-top: 8rem;
+            @include respond(tab-port) {
+                padding-top: 0;
+            }
+        }
+        @include respond(big-desktop) {
+            padding-inline-start: calc(calc(calc(100vw - 148rem) / 2) + 2rem);
+        }
+        @include respond(tab-land) {
+            padding-inline-start: calc(calc(calc(100vw - 100rem) / 2) + 2rem);
+        }
+        @include respond(tab-port) {
+            flex-wrap: wrap;
+            // padding-top: 2rem;
+            flex-direction: column;
+            gap: 1rem;
+            &--active {
+                opacity: 1;
+                transform: scaleY(1);
+                position: static;
+            }
+        }
+    }
+    @media only screen and (min-width: 900px) {
+        // Show Sub menu
+        &__link:hover~&__sub_menu {
+            transform: scaleY(1);
+            opacity: 1;
+        }
+    }
+    &__icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        position: relative;
+        svg {
+            transition: fill 0.2s ease-in-out, transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+            &:hover {
+                fill: #FBB03B;
+                transform: translateY(-2px) scale(1.05);
+                filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.25));
+            }
+            &:active {
+                transform: translateY(-1px) scale(1.025);
+                filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.3));
+            }
+            @include respond(tab-port) {
+                filter: none;
+            }
+        }
+        &:first-child {
+            @include respond(tab-port) {
+                display: none;
+            }
+        }
+        &--search--active {
+            // width: 25.9375vw;
+            width: 24.9375vw;
+            height: 3.9rem;
+            margin-left: -15rem;
+            svg {
+                filter: none;
+            }
+        }
+        &--search svg {
+            width: 2.1996rem;
+            height: 2.2rem;
+        }
+        &--search--active svg {
+            fill: #000 !important;
+            width: 1.75rem;
+            height: 1.75rem;
+            display: block;
+            margin-left: auto;
+            margin-right: 5%;
+            position: relative;
+        }
+        &--cart svg {
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+        &--profile svg {
+            width: 1.9rem;
+            height: 1.9rem;
+        }
+    }
+    &__icon svg {
+        fill: $color-white;
+        @include respond(tab-port) {
+            fill: $color-black;
+        }
+    }
+    &--scrolled &__icon svg,
+    &--routed &__icon svg {
+        fill: $color-black;
+        filter: none;
+    }
+    &__menu-icon {
+        display: none;
+        width: 2.2rem;
+        height: 1.6rem;
+        position: relative;
+        @include respond(tab-port) {
+            display: block;
+        }
+        & span {
+            height: 0.2rem;
+            width: 100%;
+            position: absolute;
+            background-color: $color-black;
+            display: block;
+            left: 0;
+            border-radius: 100px;
+            transition: 0.2s ease-in-out transform, 0.2s ease-in-out opacity, 0.2s ease-in-out top;
+            &:nth-child(1) {
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: calc(0.2rem + 0.5rem);
+            }
+            &:nth-child(3) {
+                top: calc(0.4rem + 1rem);
+            }
+        }
+    }
+    /* 
+    States
+     */
+    // Active state (clicked/opened) (In phone and tablet only)
+    @include respond(tab-port) {
+        &--active {
+            // background-color: rgba($color: #000000, $alpha: 0.5);
+            // padding: 0;
+            &::after {
+                content: '';
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #000;
+                opacity: 25%;
+                z-index: -1;
+            }
+            .nav {
+                &__menu {
+                    width: 87vw;
+                    height: 100vh;
+                    background-color: $color-white;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    z-index: 500;
+                    &_profile {
+                        display: block;
+                    }
+                    &_header {
+                        width: 100%;
+                        flex-basis: 100%;
+                        padding: 4rem $rowPadd;
+                        border-bottom: 1px solid $color-mid-gray;
+                        @include respond(phone) {
+                            padding: 4rem 3rem;
+                        }
+                    }
+                }
+                &__links {
+                    display: flex;
+                    li a {
+                        color: $color-black;
+                    }
+                }
+                &__elmnt {
+                    &:first-child {
+                        align-content: start;
+                    }
+                }
+                &__menu-icon {
+                    & span {
+                        // left: 0;
+                        top: 50%;
+                        &:nth-child(1) {
+                            transform: translateY(-50%) rotate(45deg);
+                        }
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+                        &:nth-child(3) {
+                            transform: translateY(-50%) rotate(-45deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

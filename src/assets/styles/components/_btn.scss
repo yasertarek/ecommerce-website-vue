@@ -1,0 +1,28 @@
+.btn {
+    border-radius: 10rem;
+    font-size: 1.3rem;
+    color: $color-black;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 1.5rem 2.8rem;
+    border: none;
+    cursor: pointer;
+    &:active,
+    &:focus {
+        outline: 3px dashed $color-blue;
+    }
+    @include hoverAnimation();
+}
+
+.btn-light {
+    background-color: $color-white;
+}
+
+.btn-yellow {
+    background-color: $color-yellow;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #D8D8D8;
+}

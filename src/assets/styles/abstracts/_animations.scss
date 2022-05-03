@@ -1,0 +1,17 @@
+// Move Arrow to right on hover animation
+@keyframes moveToRight {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5rem);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-5rem);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
