@@ -110,6 +110,7 @@
         </div>
       </div>
     </div>
+    <span class="nav__overlay" @click="toggleMenu"></span>
   </nav>
 </template>
 <script>

@@ -212,6 +212,12 @@ main {
                 }
             }
         }
+        &_icon {
+            display: none;
+            @include respond (tab-port) {
+                display: block;
+            }
+        }
     }
     &__view {
         flex-basis: calc(75.78125% - 3.5rem);

@@ -295,6 +295,7 @@ export default {
       maxVal: 500,
       varMinVal: 0,
       varMaxVal: 500,
+      loading: false,
       post: {
         cat: 'men',
         collection: 'all',
@@ -504,7 +505,8 @@ export default {
             }
           }
         ]
-      }
+      },
+      error: null
     }
   },
   props: ['collection', 'type'],
@@ -554,7 +556,36 @@ export default {
       ).style.background = `linear-gradient(to right, #CECECE 0 ${
         start / 5
       }%, #000 ${start / 5}% ${end / 5}%, #CECECE ${end / 5}% 100%)`
+    },
+    fetchData () {
+      this.error = this.post = null
+      this.loading = true
+      fetch('http://127.0.0.1:5500/src/assets/API/main/men/data.json')
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data)
+          this.post = data
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
     }
+  },
+  mounted () {
+    this.setBackgroundTrack()
+  },
+  created () {
+    console.log(this.$route)
+    // watch the params of the route to fetch the data again
+    this.$watch(
+      () => this.$route.params,
+      () => {
+        this.fetchData()
+      },
+      // fetch the data when the view is created and the data is
+      // already being observed
+      { immediate: true }
+    )
   }
 }
 </script>

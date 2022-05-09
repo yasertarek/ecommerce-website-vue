@@ -284,6 +284,8 @@ export default {
         // move links list
         document.querySelector('.nav__links').classList.remove('nav__links--moved')
       }
+      // check for clicking outside menu in mobile and then hide it
+      // if(e.target)
     })
   },
   unmounted () {
@@ -292,6 +294,7 @@ export default {
   watch: {
     $route (to, from) {
       document.querySelector('.nav').classList.remove('nav--active')
+      document.querySelector('body').classList.remove('body--overflow-y')
     }
   }
 }

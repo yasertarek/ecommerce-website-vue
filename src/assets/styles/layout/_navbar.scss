@@ -113,6 +113,7 @@
         margin-inline-end: -25%;
         transition: margin 0.2s ease-in-out;
         @include respond(tab-port) {
+            height: auto;
             display: none;
             margin: 0;
             flex-basis: 100%;
@@ -385,6 +386,18 @@
             }
         }
     }
+    &__overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        opacity: 0%;
+        z-index: -1;
+        transition: opacity 0.2s ease-in-out;
+        visibility: hidden;
+    }
     /* 
     States
      */
@@ -393,18 +406,11 @@
         &--active {
             // background-color: rgba($color: #000000, $alpha: 0.5);
             // padding: 0;
-            &::after {
-                content: '';
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 100vw;
-                height: 100vh;
-                background-color: #000;
-                opacity: 25%;
-                z-index: -1;
-            }
             .nav {
+                &__overlay {
+                    visibility: visible;
+                    opacity: 25%;
+                }
                 &__menu {
                     width: 87vw;
                     height: 100vh;

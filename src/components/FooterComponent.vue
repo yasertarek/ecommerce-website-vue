@@ -117,9 +117,7 @@
     <div class="footer__copyright">
       <div class="row">
         Code By
-        <router-link to="https://www.linkedin.com/in/yasser-tarek-nada/"
-          >Yasser Tarek</router-link
-        >
+        <a href="https://www.linkedin.com/in/yasser-tarek-nada/" target="_blank">Yasser Tarek</a>
         Design by Iceo.co - &copy; 2022. All rights reserved.
       </div>
     </div>
